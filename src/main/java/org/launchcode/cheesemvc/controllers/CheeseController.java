@@ -23,8 +23,9 @@ public class CheeseController {
         model.addAttribute("title", "My Cheeses");
         return "cheese/index";
     }
+
     @RequestMapping(value = "add", method = RequestMethod.GET)
-    public String displayAddCheeseForm(Model model){
+    public String displayAddCheeseForm(Model model) {
         model.addAttribute("title", "Add Cheese");
         return "cheese/add";
     }
@@ -32,7 +33,7 @@ public class CheeseController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddCheeseForm(@RequestParam String cheeseName) {
         cheeses.add(cheeseName);
-        return  "redirect:";
+        return "redirect:";
     }
 
     @RequestMapping(value = "remove")
@@ -44,10 +45,14 @@ public class CheeseController {
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.POST)
-    public String processRemoveCheeseForm(@RequestParam String cheeseName) {
-        if(Boolean removeCheese = on){
-        cheeses.remove(cheeseName);
-        return "redirect:";
-    }
+    public String processRemoveCheeseForm(@RequestParam String removeCheese)
+        {
+            
+            cheeses.remove(removeCheese);
+            return "redirect:";
 
+
+
+    }
 }
+

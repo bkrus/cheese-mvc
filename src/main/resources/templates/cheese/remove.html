@@ -6,19 +6,13 @@
 <nav th:replace="fragments :: navigation"></nav>
 <p th:unless="${cheeses} and ${cheeses.size()}">no cheese</p>
 
-<form>
+<form method = "post">
 
+    <select>
+        <option th:each="cheese : ${cheeses}" name="removeCheese" th:text="${cheese}">no cheese</option>
+        <input type="submit" value="Remove" />
+    </select>
 
-    <ul>
-        <li th:each="cheese : ${cheeses}" >
-            <tr>
-                <td th:text="${cheese}"></td>
-                <td><input type="checkbox" name="removeCheese"/></td>
-            </tr>
-        </li>
-    </ul>
-
-    <input type="submit" value="Remove" />
 </form>
 
 </body>

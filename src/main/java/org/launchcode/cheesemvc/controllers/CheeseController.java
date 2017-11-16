@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 @Controller
 @RequestMapping("cheese")
@@ -25,25 +27,25 @@ public class CheeseController {
         return "cheese/index";
     }
 
-     @RequestMapping(value = "add", method = RequestMethod.GET)
-     public String displayAddCheeseForm(Model model) {
-         model.addAttribute("title", "Add Cheese");
-         return "cheese/add";
-     }
+    @RequestMapping(value = "add", method = RequestMethod.GET)
+    public String displayAddCheeseForm(Model model) {
+        model.addAttribute("title", "Add Cheese");
+        return "cheese/add";
+    }
 
-     @RequestMapping(value = "add", method = RequestMethod.POST)
-     public String multiParamExample (@RequestParam String cheeseName, @RequestParam String cheeseDesc) {
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public String multiParamExample(@RequestParam String cheeseName, @RequestParam String cheeseDesc) {
         cheeses.put(cheeseName, cheeseDesc);
         return "redirect:";
-        }
-    
+    }
+
     @RequestMapping(value = "remove")
     public String displayRemoveCheeseForm(Model model) {
 
         model.addAttribute("cheeses", cheeses);
         model.addAttribute("title", "My Cheeses");
         return "cheese/remove";
-    }   
+    }
 
     @RequestMapping(value = "remove", method = RequestMethod.POST)
     public String processRemoveCheeseForm(@RequestParam String removeCheese){
@@ -51,5 +53,6 @@ public class CheeseController {
             return "redirect:";
         }
     }
+
 
 

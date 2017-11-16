@@ -7,12 +7,10 @@
 <p th:unless="${cheeses} and ${cheeses.size()}">no cheese</p>
 
 <form method = "post">
-
-    <select>
-        <option th:each="cheese : ${cheeses}" name="removeCheese" th:text="${cheese}">no cheese</option>
+    <select name="removeCheese">
+        <option  th:each="cheese : ${cheeses}" th:id="${cheese.key}"  th:text="${cheese.key}">no cheese</option>
         <input type="submit" value="Remove" />
     </select>
-
 </form>
 
 </body>

@@ -1,5 +1,6 @@
 package org.launchcode.cheesemvc.controllers;
 
+import org.launchcode.cheesemvc.models.Cheese;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +17,9 @@ import java.util.Map;
 @RequestMapping("cheese")
 public class CheeseController {
 
-    static HashMap<String, String> cheeses = new HashMap<>();
+    static ArrayList<Cheese> cheeses = new ArrayList<>();
 
-    // /cheese
+    // /Cheese
     @RequestMapping(value = "")
     public String index(Model model) {
 
@@ -35,15 +36,15 @@ public class CheeseController {
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String multiParamExample(@RequestParam String cheeseName, @RequestParam String cheeseDesc) {
-        cheeses.put(cheeseName, cheeseDesc);
+        Cheese newCheese = new Cheese(cheeseName, cheeseDesc);
+        cheeses.add(newCheese);
         return "redirect:";
     }
 
-    @RequestMapping(value = "remove")
+    @RequestMapping(value = "remove", method = RequestMethod.GET)
     public String displayRemoveCheeseForm(Model model) {
-
         model.addAttribute("cheeses", cheeses);
-        model.addAttribute("title", "My Cheeses");
+        model.addAttribute("title", "Remove Cheeses");
         return "cheese/remove";
     }
 

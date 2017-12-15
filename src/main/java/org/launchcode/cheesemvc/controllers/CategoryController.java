@@ -19,25 +19,27 @@ public class CategoryController {
     @Autowired
     private CategoryDao categoryDao;
 
-    // /Cheese
+    //
     @RequestMapping(value = "")
     public String index(Model model) {
 
-        model.addAttribute("categories",categoryDao.findAll());
+        model.addAttribute("Categories",categoryDao.findAll());
 
         return "category/index";
+
     }
 
-    @RequestMapping(value = "add")
+    @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayCategories(Model model) {
-        model.addAttribute("Add Category", new Category());
+        model.addAttribute(new Category());
         return "category/add";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST )
-    public String add(Model model,
-                      @ModelAttribute @Valid Category category, Errors errors){
+    public String add(@ModelAttribute @Valid Category category, Errors errors, Model model){
+
         if (errors.hasErrors()){
+            model.addAttribute("title", "Add Name");
             return "category/add";
         }
         categoryDao.save(category);

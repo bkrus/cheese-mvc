@@ -4,9 +4,8 @@
 <body class="container">
 <h1 th:text="${title}">Default</h1>
 
-
-    <p th:text>Hello Person</p>
-
+   Hello <span th:text="${user.username}"></span>
+<hr/>
 <a href="/user/add">Add</a>
 </body>
 </html>

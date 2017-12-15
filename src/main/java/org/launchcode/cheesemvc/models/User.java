@@ -1,8 +1,18 @@
 package org.launchcode.cheesemvc.models;
 
+import org.hibernate.validator.constraints.Email;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class User {
+    @NotNull
+    @Size(min=3, max=15)
     private String username;
+    @Email
     private String email;
+    @NotNull
+    @Size(min=6)
     private String password;
 
    // public User(String username, String email, String password) {

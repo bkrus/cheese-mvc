@@ -23,6 +23,7 @@ public class CategoryController {
     @RequestMapping(value = "")
     public String index(Model model) {
 
+        model.addAttribute("title", "Categories");
         model.addAttribute("Categories",categoryDao.findAll());
 
         return "category/index";
@@ -31,6 +32,7 @@ public class CategoryController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayCategories(Model model) {
+        model.addAttribute("title", "Ad Categories");
         model.addAttribute(new Category());
         return "category/add";
     }

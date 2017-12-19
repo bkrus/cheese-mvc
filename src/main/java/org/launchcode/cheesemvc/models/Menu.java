@@ -18,7 +18,7 @@ public class Menu {
     private String name;
 
     @ManyToMany
-    private List<Cheese> cheeses;
+    private List<Cheese> cheeses; //= new ArrayList<>()?
 
 
 

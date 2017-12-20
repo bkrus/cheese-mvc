@@ -4,6 +4,7 @@
 <body class="container">
 <h1 th:text="${title}">Default</h1>
 <nav th:replace="fragments :: navigation"></nav>
+<br/>
 <div>
     <ul >
         <li th:each="menu : ${Menus}">
@@ -11,7 +12,7 @@
         </li>
     </ul>
 </div>
-<hr/>
+<br/>
 
 <p><a href="menu/add">Add Menu</a>
 

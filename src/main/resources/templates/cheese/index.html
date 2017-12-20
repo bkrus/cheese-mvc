@@ -4,6 +4,7 @@
 <body class ="container">
     <h1 th:text="${title}">Default</h1>
     <nav th:replace="fragments :: navigation"></nav>
+    <br/>
     <p th:unless="${cheeses} and ${cheeses.size()}">no cheese</p>
 
 <table class = "table">
@@ -20,7 +21,7 @@
     </tr>
 
 </table>
-    <hr/>
+    <br/>
 <div>
     <a href="/cheese/add">Add</a> |
     <a href="/cheese/remove">Remove</a>

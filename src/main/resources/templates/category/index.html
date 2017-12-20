@@ -4,12 +4,13 @@
 <body class="container">
 <h1 th:text="${title}">Default</h1>
 <nav th:replace="fragments :: navigation"></nav>
+<br/>
     <div>
         <ul th:each="category : ${Categories}">
             <li th:text="${category.name}"></li>
         </ul>
     </div>
-    <hr/>
+    <br/>
     <a href="category/add">Add Category</a>
 
 </body>

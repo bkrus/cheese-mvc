@@ -5,9 +5,9 @@
 <h1 th:text="${title}">Default</h1>
 <nav th:replace="fragments :: navigation"></nav>
 <hr/>
-
+<br/>
 <ul >
-    <li th:each="menu : ${menu.cheeses}"></li>
+    <li th:each="menu : ${menu.cheeses}" th:text="${menu.name}"></li>
 </ul>
 
 <p th:unless="${menu.cheeses.size()}">No Cheeses yet</p>
